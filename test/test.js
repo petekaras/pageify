@@ -21,18 +21,24 @@ var element = require('../src/element.js');
 		assert.equal(result,'submitButton: function(){selector:"personal-info-submit-button"}');
     });    
     it('should write two selectors', function () {
-		var source = '{{#each attributes}}submitButton: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
+		var source = '{{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
 		var template = Handlebars.compile(source);
-		var data = { attributes:[{"value":"personal-info-submit-button"},{"value":"show-more-info-button"}]};
+		var data = { elements:[{"functionName":"submitButton","value":"personal-info-submit-button"},{"functionName":"submitButton","value":"show-more-info-button"}]};
 		var result = template(data);
 		assert.equal(result,'submitButton: function(){selector:"personal-info-submit-button"},submitButton: function(){selector:"show-more-info-button"}');
     });
-    it('extract id from element', function () {
-		var source = '<input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" />';
-		
-		var result = element.extract(source,'id'); 
-		assert.equal(result,'main-q');
-    })
+     it('should create data json', function () {
+		var source = '<input type="search" id="main-q" data-qa="uid" name="q" placeholder="Search" data-value="" value="" />';
+    	var functionName = element.extractFunctionName(source,'data-qa'); 
+    	var selector = element.extractAttribute(source,'id');
+    	//var templateSource = {{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
+   		//var template = Handlebars.compile(templateSource);
+   		var object = new Object();
+   		object.functionName = functionName;
+   		object.value = selector;
+   		console.log(">>>>>>>>>>", JSON.stringify(object));
+    })   
+
   });
 
 
