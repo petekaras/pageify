@@ -24,8 +24,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/petekaras/pageify/issues"
-  },
-  "dependencies": {
-    "mocha": "1.4.21"
   }
 }
