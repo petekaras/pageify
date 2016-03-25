@@ -1,5 +1,5 @@
 {
-  "name": "pageify",
+  "name": "qaify",
   "version": "0.0.0",
   "description": "automatically create pageobjects from browser based applications",
   "main": "index.js",
@@ -24,5 +24,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/petekaras/pageify/issues"
+  },
+  "dependencies":{
+    "cheerio":"0.20.0"
   }
 }

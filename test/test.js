@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
 var Handlebars = require('handlebars');
+var element = require('../src/element.js');
 
   describe('Basic handlebars', function () {
     it('should template a simple file', function () {
@@ -26,6 +27,12 @@ var Handlebars = require('handlebars');
 		var result = template(data);
 		assert.equal(result,'submitButton: function(){selector:"personal-info-submit-button"},submitButton: function(){selector:"show-more-info-button"}');
     });
+    it('extract id from element', function () {
+		var source = '<input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" />';
+		
+		var result = element.extract(source,'id'); 
+		assert.equal(result,'main-q');
+    })
   });
 
 
