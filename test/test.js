@@ -1,6 +1,7 @@
 var assert = require('chai').assert;
 var Handlebars = require('handlebars');
 var element = require('../src/element.js');
+var tmplData = require('../src/templateData.js');
 
   describe('Basic handlebars', function () {
     it('should template a simple file', function () {
@@ -23,7 +24,7 @@ var element = require('../src/element.js');
     it('should write two selectors', function () {
 		var source = '{{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
 		var template = Handlebars.compile(source);
-		var data = { elements:[{"functionName":"submitButton","value":"personal-info-submit-button"},{"functionName":"submitButton","value":"show-more-info-button"}]};
+		var data = { "elements":[{"functionName":"submitButton","value":"personal-info-submit-button"},{"functionName":"submitButton","value":"show-more-info-button"}]};
 		var result = template(data);
 		assert.equal(result,'submitButton: function(){selector:"personal-info-submit-button"},submitButton: function(){selector:"show-more-info-button"}');
     });
@@ -31,12 +32,10 @@ var element = require('../src/element.js');
 		var source = '<input type="search" id="main-q" data-qa="uid" name="q" placeholder="Search" data-value="" value="" />';
     	var functionName = element.extractFunctionName(source,'data-qa'); 
     	var selector = element.extractAttribute(source,'id');
-    	//var templateSource = {{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
-   		//var template = Handlebars.compile(templateSource);
-   		var object = new Object();
-   		object.functionName = functionName;
-   		object.value = selector;
-   		console.log(">>>>>>>>>>", JSON.stringify(object));
+
+    	var object = tmplData.initialise();
+    	object.elements.push(tmplData.makeItem(functionName,selector));
+   		assert.equal(JSON.stringify(object),'{"elements":[{"functionName":"uidSearch","value":"main-q"}]}');
     })   
 
   });
