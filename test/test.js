@@ -38,6 +38,13 @@ var tmplData = require('../src/templateData.js');
    		assert.equal(JSON.stringify(object),'{"elements":[{"functionName":"uidSearch","value":"main-q"}]}');
     })   
 
+    it('should work', function () {
+		var source = '{{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}';
+		var template = Handlebars.compile(source);
+		var data = {"elements":[{"functionName":"main-qSearch","value":"searchString"}]};
+		var result = template(data);
+		assert.equal(result,'main-qSearch: function(){selector:"searchString"}');
+    });
   });
 
 

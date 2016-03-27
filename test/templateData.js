@@ -9,7 +9,7 @@ var tmplData = require('../src/templateData.js');
    		assert.equal(JSON.stringify(object),'{"elements":[{"functionName":"uidSearch","value":"main-q"}]}');
     })
 
-    it('should create a single data item', function () {
+    it('should create two data items', function () {
 		var object = tmplData.initialise();
     	object.elements.push(tmplData.makeItem('uidSearch','main-q'));
     	object.elements.push(tmplData.makeItem('another','xxxx'));

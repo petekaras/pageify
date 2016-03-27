@@ -28,6 +28,7 @@
   "dependencies":{
     "cheerio":"0.20.0",
     "underscore":"1.8.3",
-    "underscore.string":"3.3.4"
+    "underscore.string":"3.3.4",
+    "mocha":"2.4.5"
   }
 }
