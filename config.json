@@ -1,0 +1,9 @@
+{
+	"dataSource" : "mock",
+	"pageObjectType" : "nightWatch",
+	"strategy" : {
+		"selector" : "determines elements to be selected on page",
+		"functionName" : "id",
+		"selectorAttribute" : "data-qa"		
+	}
+}
