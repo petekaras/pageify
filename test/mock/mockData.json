@@ -1,0 +1,7 @@
+{
+	"elementData": 
+	[
+	"<input type='search' id='main-q' data-qa='searchString' name='q' placeholder='Search' data-value='' value='' />",
+	"<input type='button' id='submitForm' data-qa='submit-button' value='' />"
+	]
+}
