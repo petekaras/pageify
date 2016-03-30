@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 var element = require('../src/element.js');
 
-  describe('BElement parsing', function () {
+  describe('Element parsing', function () {
    
     it('should return a nice function name based on ID', function () {
 		var source = '<input type="search" id="main-q" data-qa="searchString" name="q" placeholder="Search" data-value="" value="" />';
@@ -20,7 +20,13 @@ var element = require('../src/element.js');
 		
 		var result = element.extractFunctionName(source,'data-qa'); 
 		assert.equal(result,'element <html type="search"/> is unsupported.');
-    })  
+    }) 
+        it('should work', function () {
+		var source = '<input type="search" id="main-q" data-qa="searchString" name="q" placeholder="Search" data-value="" value="" />';
+		
+		var result = element.extractFunctionName(source,'id'); 
+		assert.equal(result,'main-qSearch');
+    })   
   });
 
 

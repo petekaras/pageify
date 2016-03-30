@@ -1,1 +1,3 @@
-{{#each elements}}{{this.functionName}}: function(){selector:"{{this.value}}"}{{#unless @last}},{{/unless}}{{/each}}
+{{#each elements}}{{this.functionName}}: function(){
+	selector:"{{this.value}}"
+}{{#unless @last}},{{/unless}}{{/each}}
