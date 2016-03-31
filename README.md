@@ -10,6 +10,7 @@ QA helper by generatig page objects
 
 ###Strategy
 The strategy with which to create the page object
+
 | property  			| values 		|Comment|
 | --------------------- | ------------- |-------------|
 |selector|css selector|the selector that returns an array of elements that form the basis of the Page Object. this will usually be all elements that the user would interact with by clicking on, filling in or reading|
