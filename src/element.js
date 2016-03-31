@@ -2,10 +2,16 @@ var cheerio = require('cheerio');
 var s = require("underscore.string");
 
 module.exports = {
-  extractAttribute: function (htmlElement, attribute) {
+  extractSelector: function (htmlElement, attribute) {
   	$ = cheerio.load(htmlElement);
   	if($('input').length){
-  		return $('input').attr(attribute);
+      var attributeValue = $('input').attr(attribute);
+      if(attribute==='id'){
+         return "#"+attributeValue; 
+      }else{
+        return "[" + attribute +"='" + attributeValue + "']";
+      }
+  		
   	}else{
     	return 'element ' + htmlElement + ' is unsupported.'
 	}
@@ -15,8 +21,8 @@ module.exports = {
   	$ = cheerio.load(htmlElement);
   	if($('input').length){
   		var type = $('input').attr('type');
-  		var id = $('input').attr(namingAttribute);
-  		return id + s.capitalize(type);
+  		var name = $('input').attr(namingAttribute);
+  		return name + s.capitalize(type);
   	}else{
     	return 'element ' + htmlElement + ' is unsupported.'	
   	}

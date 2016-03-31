@@ -12,7 +12,7 @@ var data = tmplData.initialise();
 
 for (var i = 0; i < source.length; i++) {
 	var functionName = element.extractFunctionName(source[i],config.strategy.functionName); 
-	var selector = element.extractAttribute(source[i],config.strategy.selectorAttribute);
+	var selector = element.extractSelector(source[i],config.strategy.selectorAttribute);
 	data.elements.push(tmplData.makeItem(functionName,selector));
 }
 

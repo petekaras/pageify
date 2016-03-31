@@ -31,11 +31,11 @@ var tmplData = require('../src/templateData.js');
      it('should create data json', function () {
 		var source = '<input type="search" id="main-q" data-qa="uid" name="q" placeholder="Search" data-value="" value="" />';
     	var functionName = element.extractFunctionName(source,'data-qa'); 
-    	var selector = element.extractAttribute(source,'id');
+    	var selector = element.extractSelector(source,'id');
 
     	var object = tmplData.initialise();
     	object.elements.push(tmplData.makeItem(functionName,selector));
-   		assert.equal(JSON.stringify(object),'{"elements":[{"functionName":"uidSearch","value":"main-q"}]}');
+   		assert.equal(JSON.stringify(object),'{"elements":[{"functionName":"uidSearch","value":"#main-q"}]}');
     })   
 
     it('should work', function () {

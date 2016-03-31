@@ -9,7 +9,7 @@ var dataSource = require('../src/dataSource.js');
     })
     it('should read second item in array of elements', function () {
       var source = dataSource.getData('mock','tbc');
-      assert.equal(source[1],"<input type='something' id='main-q' data-qa='searchString' name='q' placeholder='Search' data-value='' value='' />");
+      assert.equal(source[1],"<input type='button' id='submitForm' data-qa='submit-button' value='' />");
     })
 
   });

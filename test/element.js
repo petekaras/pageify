@@ -6,18 +6,18 @@ var element = require('../src/element.js');
     it('should extract id from an input element', function () {
 		var source = '<input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" />';
 		
-		var result = element.extractAttribute(source,'id'); 
-		assert.equal(result,'main-q');
+		var result = element.extractSelector(source,'id'); 
+		assert.equal(result,'#main-q');
     })
         it('should extract data-qa from an input element', function () {
 		var source = '<input type="search" id="main-q" data-qa="searchString" name="q" placeholder="Search" data-value="" value="" />';
-		var result = element.extractAttribute(source,'data-qa'); 
-		assert.equal(result,'searchString');
+		var result = element.extractSelector(source,'data-qa'); 
+		assert.equal(result,"[data-qa='searchString']");
     })
     it('should report an unsupported element', function () {
 		var source = '<html type="search"/>';
 		
-		var result = element.extractAttribute(source,'data-qa'); 
+		var result = element.extractSelector(source,'data-qa'); 
 		assert.equal(result,'element <html type="search"/> is unsupported.');
     })
   });
