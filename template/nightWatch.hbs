@@ -1,4 +1,16 @@
-{{#each elements}}{{this.functionName}}: function(){
-	selector:"{{this.value}}"
-}{{#unless @last}},
-{{/unless}}{{/each}}
+var pageCommands = {
+  submit: function() {
+  	//tobe defined
+  }
+};
+
+module.exports = {
+  commands: [pageCommands],
+  url: 'http://to.be.defined',
+  elements: {
+		{{#each elements}}{{this.functionName}}: function(){
+			selector:"{{this.value}}"
+		}{{#unless @last}},
+		{{/unless}}{{/each}}
+	}
+}
