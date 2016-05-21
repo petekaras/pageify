@@ -2,6 +2,7 @@ var fs = require('fs');
 /*
 * data source
 */
+
 module.exports = {
   getData: function (sourceType,Selector) {
     if(sourceType==="mock"){
@@ -12,5 +13,5 @@ module.exports = {
     }
 
  }
-  
+
 };

@@ -29,6 +29,8 @@
     "cheerio":"0.20.0",
     "underscore":"1.8.3",
     "underscore.string":"3.3.4",
-    "mocha":"2.4.5"
+    "mocha":"2.4.5",
+    "chai":"3.5.0",
+    "handlebars": "4.0.5"
   }
 }
